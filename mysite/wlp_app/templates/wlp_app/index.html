@@ -1,0 +1,30 @@
+<!--
+wlp_app templates wlp_app
+index.html
+Ron Wilton
+Started 20/07/2017
+-->
+
+{% extends "personal/header.html" %}
+
+{% block content %}
+	<h1>Wildlife Photographs</h1>
+	{% if locations_context %}
+		{% for locindex in locations_context %}
+			<h3>{{ locindex.name }}</h3>
+			{% if locindex.photo_set.all %}
+				{% for photoindex in photos_context %}
+					{% if photoindex.location.id == locindex.id %}
+						<a href="{% url 'photourl' photo_id=photoindex.id %}">{{ photoindex.name }}</a>
+						<br>
+					{% endif %}
+				{% endfor %}
+			{% else %}
+				<i>There are no photos available.</i>
+			{% endif %}
+		{% endfor %}
+	{% else %}
+		<i>There are no locations.</i>
+	{% endif %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+<!--
+templates/blog/post.html
+
+Ron Wilton
+
+Started 06/07/2017
+-->
+
+{% extends 'personal/header.html' %}
+
+<!-- this is the individual blog page -->
+{% block content %}
+	<h3>{{post.title}}</h3>
+	<h6>on {{post.date}}</h6>
+	{{post.body|safe|linebreaks}}
+{% endblock %}

@@ -1,0 +1,29 @@
+<!--
+wlp_app templates wlp_app
+photo.html
+Ron Wilton
+Started 20/07/2017
+-->
+
+{% extends 'personal/header.html' %}
+<!--
+{% block head %}
+	{% if pht != None %}
+		<title>{{ pht.name }} - Wildlife Photographs</title>
+	{% else %}
+		<title>Invalid Item - Wildlife Photographs</title>
+	{% endif %}
+{% endblock %}
+-->
+
+{% block content %}
+	<!-- 'index' from urls.py -->
+	<a href="{% url 'indexurl' %}">&lt; Back</a>
+	{% if pht != None %} 
+		<h2>{{ pht.name }}</h2>
+		<h4>{{ pht.location.name }}</h4>
+		<p>{{ pht.description }}</p>
+	{% else %}
+		<h1>Invalid photo ID</h1>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+<!--
+templates/blog/blog.html
+
+Ron Wilton
+
+Started 06/07/2017
+"""
+-->
+
+{% extends 'personal/header.html' %}
+
+{% block content %}
+	{% for post in object_list %}
+	<!-- 'object_list' comes from 'objects' in 'urls.py' -->
+		<h5>{{ post.date|date:"Y-m-d" }}<a href=
+		"/blog/{{post.id}}"> {{post.title}}</a></h5>
+		<!-- 'date'
+				is from the Post class in 'models.py' -->
+		<!-- '"Y-m-d"'
+				formats the date -->
+		<!-- in ‘…date:"Y-m-d"…’
+				Ensure there is no space between 
+				‘:’ and ‘”’ -->
+		<!-- '<a href="/blog/{{post.id}}">'
+				allows the user to click on the post's title
+				NB 'id' has not been added to the Post class
+				in models.py. Django adds this
+				automatically -->
+	{% endfor %}
+{% endblock %}
