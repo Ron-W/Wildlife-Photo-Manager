@@ -23,6 +23,7 @@ Started 20/07/2017
 		<h2>{{ pht.name }}</h2>
 		<h4>{{ pht.location.name }}</h4>
 		<p>{{ pht.description }}</p>
+		<img src="{{ pht.photo_taken.url }}" class="responsive-img" style='max-height:500px;' alt="face">
 	{% else %}
 		<h1>Invalid photo ID</h1>
 	{% endif %}
